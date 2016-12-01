@@ -9,11 +9,18 @@
 namespace App\Http\Controllers;
 
 
+use App\Category;
+
 class IndexController
     extends Controller
 {
     public function home()
     {
         return view('index');
+    }
+
+    public function test()
+    {
+        dd(Category::find(4)->parent());
     }
 }

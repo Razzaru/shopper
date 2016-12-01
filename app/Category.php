@@ -8,6 +8,16 @@ class Category extends Model
 {
     
     protected $fillable = [];
+
+    public function parent()
+    {
+        return Category::find($this->parent_id);
+    }
+
+    public function children()
+    {
+        return Category::all()->where('parent_id',[],$this->id);
+    }
     
     public function products()
     {

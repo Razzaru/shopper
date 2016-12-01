@@ -59,7 +59,7 @@
     @section('item-navbar')
         <section class="navbar main-menu">
             <div class="navbar-inner main-menu">
-                <a href="index.html" class="logo pull-left"><img src="themes/images/logo.png" class="site_logo" alt=""></a>
+                <a href="index.html" class="logo pull-left"><img src="img/app/logo.png" class="site_logo" alt=""></a>
                 <nav id="menu" class="pull-right">
                     <ul>
                         <li><a href="./products.html">Woman</a>
@@ -102,7 +102,7 @@
                     <ul class="nav">
                         <li><a href="./index.html">Homepage</a></li>
                         <li><a href="./about.html">About Us</a></li>
-                        <li><a href="./contact.html">Contac Us</a></li>
+                        <li><a href="./contact.html">Contact Us</a></li>
                         <li><a href="./cart.html">Your Cart</a></li>
                         <li><a href="./register.html">Login</a></li>
                     </ul>
@@ -141,8 +141,8 @@
 </div>
 
 @section('footer-scripts')
-    <script src="themes/js/common.js"></script>
-    <script src="themes/js/jquery.flexslider-min.js"></script>
+    <script src="/js/themes/common.js"></script>
+    <script src="/js/themes/jquery.flexslider-min.js"></script>
     <script type="text/javascript">
         $(function () {
             $(document).ready(function () {

@@ -16,3 +16,4 @@ Route::get('/', 'IndexController@home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::get('/test', 'IndexController@test');

@@ -12,9 +12,19 @@
 */
 
 Route::get('/', 'IndexController@home');
-
-Route::get('/home', 'HomeController@index');
 Route::get('/test', 'IndexController@test');
 Route::get('/logout', 'Auth\LoginController@logout');
+
+Route::get('/profile', 'ProfileController@profile');
+Route::get('/wishlist', 'ProfileController@wishlist');
+Route::get('/cart', 'ProfileController@cart');
+Route::get('/history', 'ProfileController@history');
+Route::get('/checkout', 'ProfileController@checkout');
+
+Route::get('/about', 'PagesController@about');
+Route::get('/contact', 'PagesController@contact');
+
+Route::get('/{category}', 'ProductsController@category');
+Route::get('/{category}/{subcategory}', 'ProductsController@subcategory');
 
 Auth::routes();

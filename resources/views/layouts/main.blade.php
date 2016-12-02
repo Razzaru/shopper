@@ -46,11 +46,14 @@
                     <ul class="user-menu">
                         @if(Auth::check())
                             <li><a href="/profile">My Account</a></li>
+                            <li><a href="/history">Order History</a></li>
+                            <li><a href="/wishlist">Wish List</a></li>
                             <li><a href="/cart">Your Cart</a></li>
                             <li><a href="/checkout">Checkout</a></li>
                             <li><a href="/logout">Logout</a></li>
                         @else
                             <li><a href="/login">Login</a></li>
+                            <li><a href="/register">Register</a></li>
                         @endif
                     </ul>
                 </div>
@@ -63,7 +66,7 @@
     @section('item-navbar')
         <section class="navbar main-menu">
             <div class="navbar-inner main-menu">
-                <a href="index.html" class="logo pull-left"><img src="img/app/logo.png" class="site_logo" alt=""></a>
+                <a href="/" class="logo pull-left"><img src="img/app/logo.png" class="site_logo" alt=""></a>
                 <nav id="menu" class="pull-right">
                     <ul>
                         @foreach($categories as $category)
@@ -97,24 +100,15 @@
                 <div class="span3">
                     <h4>Navigation</h4>
                     <ul class="nav">
-                        <li><a href="./index.html">Homepage</a></li>
-                        <li><a href="./about.html">About Us</a></li>
-                        <li><a href="./contact.html">Contact Us</a></li>
-                        <li><a href="./cart.html">Your Cart</a></li>
-                        <li><a href="./register.html">Login</a></li>
-                    </ul>
-                </div>
-                <div class="span4">
-                    <h4>My Account</h4>
-                    <ul class="nav">
-                        <li><a href="#">My Account</a></li>
-                        <li><a href="#">Order History</a></li>
-                        <li><a href="#">Wish List</a></li>
-                        <li><a href="#">Newsletter</a></li>
+                        <li><a href="/">Homepage</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
+                        <li><a href="/cart">Your Cart</a></li>
+                        <li><a href="/login">Login</a></li>
                     </ul>
                 </div>
                 <div class="span5">
-                    <p class="logo"><img src="themes/images/logo.png" class="site_logo" alt=""></p>
+                    <p class="logo"><img src="/img/app/logo.png" class="site_logo" alt=""></p>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. the Lorem Ipsum has
                         been
                         the industry's standard dummy text ever since the you.</p>

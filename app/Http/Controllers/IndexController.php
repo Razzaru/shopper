@@ -16,11 +16,14 @@ class IndexController
 {
     public function home()
     {
-        return view('index');
+        $categories = Category::all()->where('parent_id', [], null);
+        return view('index', [
+            'categories' => $categories,
+        ]);
     }
 
     public function test()
     {
-        dd(Category::find(4)->parent());
+
     }
 }

@@ -44,10 +44,14 @@
             <div class="span8">
                 <div class="account pull-right">
                     <ul class="user-menu">
-                        <li><a href="#">My Account</a></li>
-                        <li><a href="cart.html">Your Cart</a></li>
-                        <li><a href="checkout.html">Checkout</a></li>
-                        <li><a href="register.html">Login</a></li>
+                        @if(Auth::check())
+                            <li><a href="/profile">My Account</a></li>
+                            <li><a href="/cart">Your Cart</a></li>
+                            <li><a href="/checkout">Checkout</a></li>
+                            <li><a href="/logout">Logout</a></li>
+                        @else
+                            <li><a href="/login">Login</a></li>
+                        @endif
                     </ul>
                 </div>
             </div>
@@ -62,24 +66,17 @@
                 <a href="index.html" class="logo pull-left"><img src="img/app/logo.png" class="site_logo" alt=""></a>
                 <nav id="menu" class="pull-right">
                     <ul>
-                        <li><a href="./products.html">Woman</a>
-                            <ul>
-                                <li><a href="./products.html">Lacinia nibh</a></li>
-                                <li><a href="./products.html">Eget molestie</a></li>
-                                <li><a href="./products.html">Varius purus</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="./products.html">Man</a></li>
-                        <li><a href="./products.html">Sport</a>
-                            <ul>
-                                <li><a href="./products.html">Gifts and Tech</a></li>
-                                <li><a href="./products.html">Ties and Hats</a></li>
-                                <li><a href="./products.html">Cold Weather</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="./products.html">Hangbag</a></li>
-                        <li><a href="./products.html">Best Seller</a></li>
-                        <li><a href="./products.html">Top Seller</a></li>
+                        @foreach($categories as $category)
+                            <li><a href="/{{ $category->path }}">{{ $category->title }}</a>
+                                <ul>
+                                    @foreach($category->children() as $subcategory)
+                                        <li>
+                                            <a href="/{{ $category->path }}/{{ $subcategory->path }}">{{ $subcategory->title }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                        @endforeach
                     </ul>
                 </nav>
             </div>

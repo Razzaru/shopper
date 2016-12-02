@@ -23,7 +23,7 @@ class CreateProductsTable extends Migration
             $table->char('code', 14);
             $table->integer('reward-points');
             $table->integer('count');
-            $table->integer('cat_id');
+            $table->integer('category_id');
             $table->integer('brand_id');
             $table->timestamps();
         });

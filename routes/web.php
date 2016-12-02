@@ -26,6 +26,6 @@ Route::get('/contact', 'PagesController@contact');
 
 Auth::routes();
 
-Route::get('/{category}', 'ProductsController@category');
-Route::get('/{category}/{subcategory}', 'ProductsController@subcategory');
+Route::get('/{path}', 'ProductsController@category');
+Route::get('/{path}/{subcategory}', 'ProductsController@subcategory');
 

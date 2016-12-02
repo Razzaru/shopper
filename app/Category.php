@@ -28,4 +28,9 @@ class Category extends Model
     {
         return Category::all()->where('parent_id', [], null);
     }
+
+    public static function getByPath($path)
+    {
+        return Category::where('path', '=', $path)->first();
+    }
 }

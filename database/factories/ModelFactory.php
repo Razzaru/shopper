@@ -22,10 +22,18 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Category::class, function (Faker\Generator $faker) {
+$factory->define(App\Product::class, function (Faker\Generator $faker) {
     
     return [
         'title' => $faker->word,
-        'parent_id' => mt_rand(1, 3),
+        'description' => $faker->paragraph(),
+        'size' => $faker->randomLetter,
+        'colour' => $faker->colorName,
+        'price' => $faker->randomNumber(),
+        'reward-points' => $faker->randomNumber(),
+        'code' => mt_rand(14, 14),
+        'count' => $faker->randomNumber(),
+        'category_id' => 1,
+        'brand_id' => 1,
     ];
 });

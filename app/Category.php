@@ -23,4 +23,9 @@ class Category extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+    public static function mainCats()
+    {
+        return Category::all()->where('parent_id', [], null);
+    }
 }

@@ -16,7 +16,7 @@ class IndexController
 {
     public function home()
     {
-        $categories = Category::all()->where('parent_id', [], null);
+        $categories = Category::mainCats();
         return view('index', [
             'categories' => $categories,
         ]);

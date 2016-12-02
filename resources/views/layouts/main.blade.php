@@ -86,6 +86,8 @@
         </section>
     @show
 
+    @yield('main')
+
     @yield('homepage-slider')
 
     @yield('featured-items')

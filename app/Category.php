@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
@@ -38,11 +39,43 @@ class Category extends Model
     {
         $products = $this->products()->get();
 
-        $collection = [];
+        $collection = new Collection();
         foreach ($products as $product) {
 
             if ($product->brand_id == $brand->id) {
                 $collection[] = $product;
+            }
+
+        }
+
+        return $collection;
+    }
+
+    public function getAllSiblings()
+    {
+        $collection = new Collection();
+        
+        foreach (Category::all() as $category) {
+            
+            if($this->parent_id == $category->parent_id) {
+                $collection[] = $category;
+            }
+            
+        }
+        
+        return $collection;
+    }
+
+    public function getChildrenProducts()
+    {
+        $collection = new Collection();
+
+        foreach ($this->children() as $children) {
+
+            foreach ($children->products()->get() as $product) {
+
+                $collection[] = $product;
+                
             }
 
         }

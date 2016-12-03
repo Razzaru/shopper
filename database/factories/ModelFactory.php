@@ -33,8 +33,9 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
         'reward-points' => $faker->randomNumber(),
         'code' => mt_rand(14, 14),
         'count' => $faker->randomNumber(),
-        'category_id' => 1,
-        'brand_id' => 1,
+        'category_id' => mt_rand(4, 8),
+        'brand_id' => mt_rand(1, 9),
+        'image_path' => $faker->word . '.jpg'
     ];
 });
 

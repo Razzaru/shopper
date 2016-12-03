@@ -26,6 +26,7 @@ class IndexController
 
     public function test()
     {
+        dd(Category::find(1)->getChildrenProducts());
         /*
         Category::create([
             'title' => 'Одежда',

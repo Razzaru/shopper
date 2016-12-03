@@ -4,23 +4,25 @@
     <section class="homepage-slider" id="home-slider">
         <div class="flexslider">
             <ul class="slides">
-                <li>
-                    <img src="img/app/carousel/banner-1.jpg" alt=""/>
-                </li>
-                <li>
-                    <img src="img/app/carousel/banner-2.jpg" alt=""/>
-                    <div class="intro">
-                        <h1>Mid season sale</h1>
-                        <p><span>Up to 50% Off</span></p>
-                        <p><span>On selected items online and in stores</span></p>
-                    </div>
-                </li>
+                @foreach($headers as $header)
+                    <li>
+                        <img src="img/app/carousel/{{ $header->image_path }}" alt=""/>
+                        <div class="intro">
+                            @if($header->title)
+                                <h1>{{ $header->title }}</h1>
+                            @endif
+                            @if($header->subtitle)
+                                {!! $header->subtitle !!}
+                            @endif
+                        </div>
+                    </li>
+                @endforeach
             </ul>
         </div>
     </section>
     <section class="header_text">
-        We stand for top quality templates. Our genuine developers always optimized bootstrap commercial templates.
-        <br/>Don't miss to use our cheap abd best bootstrap templates.
+        ANALNIE SHCENKI SUKA EBUT MENYA AAAA SPASITE
+        <br/>GOVNO DAGESTAN BABI
     </section>
 @stop
 
@@ -43,85 +45,39 @@
                             <div class="carousel-inner">
                                 <div class="active item">
                                     <ul class="thumbnails">
-                                        <li class="span3">
-                                            <div class="product-box">
-                                                <span class="sale_tag"></span>
-                                                <p><a href="product_detail.html"><img src="/img/app/ladies/1.jpg"
-                                                                                      alt=""/></a></p>
-                                                <a href="product_detail.html" class="title">Ut wisi enim ad</a><br/>
-                                                <a href="products.html" class="category">Commodo consequat</a>
-                                                <p class="price">$17.25</p>
-                                            </div>
-                                        </li>
-                                        <li class="span3">
-                                            <div class="product-box">
-                                                <span class="sale_tag"></span>
-                                                <p><a href="product_detail.html"><img src="/img/app/ladies/2.jpg"
-                                                                                      alt=""/></a></p>
-                                                <a href="product_detail.html" class="title">Quis nostrud exerci
-                                                    tation</a><br/>
-                                                <a href="products.html" class="category">Quis nostrud</a>
-                                                <p class="price">$32.50</p>
-                                            </div>
-                                        </li>
-                                        <li class="span3">
-                                            <div class="product-box">
-                                                <p><a href="product_detail.html"><img src="/img/app/ladies/3.jpg"
-                                                                                      alt=""/></a></p>
-                                                <a href="product_detail.html" class="title">Know exactly turned</a><br/>
-                                                <a href="products.html" class="category">Quis nostrud</a>
-                                                <p class="price">$14.20</p>
-                                            </div>
-                                        </li>
-                                        <li class="span3">
-                                            <div class="product-box">
-                                                <p><a href="product_detail.html"><img src="/img/app/ladies/4.jpg"
-                                                                                      alt=""/></a></p>
-                                                <a href="product_detail.html" class="title">You think fast</a><br/>
-                                                <a href="products.html" class="category">World once</a>
-                                                <p class="price">$31.45</p>
-                                            </div>
-                                        </li>
-                                    </ul>
+                                        @foreach($featuredActive as $product)
+                                            <li class="span3">
+                                                <div class="product-box">
+                                                    <span class="sale_tag"></span>
+                                                    <p><a href="product_detail.html"><img
+                                                                    src="/img/app/ladies/{{ $product->image_path }}"
+                                                                    alt=""/></a></p>
+                                                    <a href="product_detail.html"
+                                                       class="title">{{ $product->title }}</a><br/>
+                                                    <a href="products.html"
+                                                       class="category">{{ $product->category()->first()->title }}</a>
+                                                    <p class="price">{{ $product->price }}</p>
+                                                </div>
+                                            </li>
+                                    @endforeach
                                 </div>
                                 <div class="item">
                                     <ul class="thumbnails">
-                                        <li class="span3">
-                                            <div class="product-box">
-                                                <p><a href="product_detail.html"><img src="/img/app/ladies/5.jpg"
-                                                                                      alt=""/></a></p>
-                                                <a href="product_detail.html" class="title">Know exactly</a><br/>
-                                                <a href="products.html" class="category">Quis nostrud</a>
-                                                <p class="price">$22.30</p>
-                                            </div>
-                                        </li>
-                                        <li class="span3">
-                                            <div class="product-box">
-                                                <p><a href="product_detail.html"><img src="/img/app/ladies/6.jpg"
-                                                                                      alt=""/></a></p>
-                                                <a href="product_detail.html" class="title">Ut wisi enim ad</a><br/>
-                                                <a href="products.html" class="category">Commodo consequat</a>
-                                                <p class="price">$40.25</p>
-                                            </div>
-                                        </li>
-                                        <li class="span3">
-                                            <div class="product-box">
-                                                <p><a href="product_detail.html"><img src="/img/app/ladies/7.jpg"
-                                                                                      alt=""/></a></p>
-                                                <a href="product_detail.html" class="title">You think water</a><br/>
-                                                <a href="products.html" class="category">World once</a>
-                                                <p class="price">$10.45</p>
-                                            </div>
-                                        </li>
-                                        <li class="span3">
-                                            <div class="product-box">
-                                                <p><a href="product_detail.html"><img src="/img/app/ladies/8.jpg"
-                                                                                      alt=""/></a></p>
-                                                <a href="product_detail.html" class="title">Quis nostrud exerci</a><br/>
-                                                <a href="products.html" class="category">Quis nostrud</a>
-                                                <p class="price">$35.50</p>
-                                            </div>
-                                        </li>
+                                        @foreach($featuredSecond as $product)
+                                            <li class="span3">
+                                                <div class="product-box">
+                                                    <span class="sale_tag"></span>
+                                                    <p><a href="product_detail.html"><img
+                                                                    src="/img/app/ladies/{{ $product->image_path }}"
+                                                                    alt=""/></a></p>
+                                                    <a href="product_detail.html"
+                                                       class="title">{{ $product->title }}</a><br/>
+                                                    <a href="products.html"
+                                                       class="category">{{ $product->category()->first()->title }}</a>
+                                                    <p class="price">{{ $product->price }}</p>
+                                                </div>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
@@ -146,94 +102,40 @@
                                 <div class="carousel-inner">
                                     <div class="active item">
                                         <ul class="thumbnails">
-                                            <li class="span3">
-                                                <div class="product-box">
-                                                    <span class="sale_tag"></span>
-                                                    <p><a href="product_detail.html"><img
-                                                                    src="/img/app/cloth/bootstrap-women-ware2.jpg"
-                                                                    alt=""/></a></p>
-                                                    <a href="product_detail.html" class="title">Ut wisi enim ad</a><br/>
-                                                    <a href="products.html" class="category">Commodo consequat</a>
-                                                    <p class="price">$25.50</p>
-                                                </div>
-                                            </li>
-                                            <li class="span3">
-                                                <div class="product-box">
-                                                    <p><a href="product_detail.html"><img
-                                                                    src="/img/app/cloth/bootstrap-women-ware1.jpg"
-                                                                    alt=""/></a></p>
-                                                    <a href="product_detail.html" class="title">Quis nostrud exerci
-                                                        tation</a><br/>
-                                                    <a href="products.html" class="category">Quis nostrud</a>
-                                                    <p class="price">$17.55</p>
-                                                </div>
-                                            </li>
-                                            <li class="span3">
-                                                <div class="product-box">
-                                                    <p><a href="product_detail.html"><img
-                                                                    src="/img/app/cloth/bootstrap-women-ware6.jpg"
-                                                                    alt=""/></a></p>
-                                                    <a href="product_detail.html" class="title">Know exactly
-                                                        turned</a><br/>
-                                                    <a href="products.html" class="category">Quis nostrud</a>
-                                                    <p class="price">$25.30</p>
-                                                </div>
-                                            </li>
-                                            <li class="span3">
-                                                <div class="product-box">
-                                                    <p><a href="product_detail.html"><img
-                                                                    src="/img/app/cloth/bootstrap-women-ware5.jpg"
-                                                                    alt=""/></a></p>
-                                                    <a href="product_detail.html" class="title">You think fast</a><br/>
-                                                    <a href="products.html" class="category">World once</a>
-                                                    <p class="price">$25.60</p>
-                                                </div>
-                                            </li>
+                                            @foreach($latestActive as $product)
+                                                <li class="span3">
+                                                    <div class="product-box">
+                                                        <span class="sale_tag"></span>
+                                                        <p><a href="product_detail.html"><img
+                                                                        src="/img/app/ladies/{{ $product->image_path }}"
+                                                                        alt=""/></a></p>
+                                                        <a href="product_detail.html"
+                                                           class="title">{{ $product->title }}</a><br/>
+                                                        <a href="products.html"
+                                                           class="category">{{ $product->category()->first()->title }}</a>
+                                                        <p class="price">{{ $product->price }}</p>
+                                                    </div>
+                                                </li>
+                                            @endforeach
                                         </ul>
                                     </div>
                                     <div class="item">
                                         <ul class="thumbnails">
-                                            <li class="span3">
-                                                <div class="product-box">
-                                                    <p><a href="product_detail.html"><img
-                                                                    src="/img/app/cloth/bootstrap-women-ware4.jpg"
-                                                                    alt=""/></a></p>
-                                                    <a href="product_detail.html" class="title">Know exactly</a><br/>
-                                                    <a href="products.html" class="category">Quis nostrud</a>
-                                                    <p class="price">$45.50</p>
-                                                </div>
-                                            </li>
-                                            <li class="span3">
-                                                <div class="product-box">
-                                                    <p><a href="product_detail.html"><img
-                                                                    src="/img/app/cloth/bootstrap-women-ware3.jpg"
-                                                                    alt=""/></a></p>
-                                                    <a href="product_detail.html" class="title">Ut wisi enim ad</a><br/>
-                                                    <a href="products.html" class="category">Commodo consequat</a>
-                                                    <p class="price">$33.50</p>
-                                                </div>
-                                            </li>
-                                            <li class="span3">
-                                                <div class="product-box">
-                                                    <p><a href="product_detail.html"><img
-                                                                    src="/img/app/cloth/bootstrap-women-ware2.jpg"
-                                                                    alt=""/></a></p>
-                                                    <a href="product_detail.html" class="title">You think water</a><br/>
-                                                    <a href="products.html" class="category">World once</a>
-                                                    <p class="price">$45.30</p>
-                                                </div>
-                                            </li>
-                                            <li class="span3">
-                                                <div class="product-box">
-                                                    <p><a href="product_detail.html"><img
-                                                                    src="/img/app/cloth/bootstrap-women-ware1.jpg"
-                                                                    alt=""/></a></p>
-                                                    <a href="product_detail.html" class="title">Quis nostrud
-                                                        exerci</a><br/>
-                                                    <a href="products.html" class="category">Quis nostrud</a>
-                                                    <p class="price">$25.20</p>
-                                                </div>
-                                            </li>
+                                            @foreach($latestSecond as $product)
+                                                <li class="span3">
+                                                    <div class="product-box">
+                                                        <span class="sale_tag"></span>
+                                                        <p><a href="product_detail.html"><img
+                                                                        src="/img/app/ladies/{{ $product->image_path }}"
+                                                                        alt=""/></a></p>
+                                                        <a href="product_detail.html"
+                                                           class="title">{{ $product->title }}</a><br/>
+                                                        <a href="products.html"
+                                                           class="category">{{ $product->category()->first()->title }}</a>
+                                                        <p class="price">{{ $product->price }}</p>
+                                                    </div>
+                                                </li>
+                                            @endforeach
                                         </ul>
                                     </div>
                                 </div>

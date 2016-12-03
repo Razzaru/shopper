@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Brand;
 use App\Category;
-use Illuminate\Pagination\Paginator;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Request;
 
 class ProductsController extends Controller
 {

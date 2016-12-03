@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 
 use App\Brand;
 use App\Category;
+use App\Header;
 use App\Product;
 
 class IndexController
@@ -18,11 +19,36 @@ class IndexController
 {
     public function home()
     {
-        $categories = Category::mainCats();
+        $headers = Header::take(2)->get();
+        $featuredActive = Product::all()->random(4);
+        $featuredSecond = Product::all()->random(4);
+        $latestActive = Product::take(4)->orderBy('id', 'desc')->get();
+        $latestSecond = Product::take(4)->orderBy('id', 'desc')->offset(4)->get();
         return view('index', [
-            'categories' => $categories,
+            'headers' => $headers,
+            'featuredActive' => $featuredActive,
+            'featuredSecond' => $featuredSecond,
+            'latestActive' => $latestActive,
+            'latestSecond' => $latestSecond
         ]);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function test()
     {

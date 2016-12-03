@@ -38,7 +38,7 @@
         <div class="row">
             <div class="span4">
                 <form method="POST" class="search_form">
-                    <input type="text" class="input-block-level search-query" Placeholder="eg. T-sirt">
+                    <input type="hidden" class="input-block-level search-query" Placeholder="eg. T-sirt">
                 </form>
             </div>
             <div class="span8">
@@ -66,7 +66,7 @@
     @section('item-navbar')
         <section class="navbar main-menu">
             <div class="navbar-inner main-menu">
-                <a href="/" class="logo pull-left"><img src="img/app/logo.png" class="site_logo" alt=""></a>
+                <a href="/" class="logo pull-left"><img src="/img/app/logo.png" class="site_logo" alt=""></a>
                 <nav id="menu" class="pull-right">
                     <ul>
                         @foreach($categories as $category)

@@ -13,7 +13,7 @@
                                 <a href="product_detail.html"><img alt=""
                                                                    src="{{ $mainPath }}/{{ $category->path }}/{{ $product->image_path }}"></a><br/>
                                 <a href="product_detail.html" class="title">{{ $product->title }}</a><br/>
-                                <a href="#" class="category">{{ $product->brand()->first()->title }}</a>
+                                <a href="#" class="category">{{ $product->category()->first()->title }}</a>
                                 <p class="price">{{ $product->price }}</p>
                             </div>
                         </li>
@@ -31,19 +31,6 @@
                         @foreach($category->getAllSiblings() as $subcategory)
                             <li><a href="/{{ $category->path }}/{{ $subcategory->path }}">{{ $subcategory->title }}</a>
                             </li>
-                        @endforeach
-                    </ul>
-                    <br/>
-                    <ul class="nav nav-list below">
-                        <li class="nav-header">BRANDS</li>
-                        @foreach($brands as $brand)
-                            @if(count($category->howMany($brand)) > 0)
-                                <li>
-                                    <a href="/{{ $category->parent()->first()->path }}/{{ $category->path }}/{{ $brand->path }}">{{ $brand->title }}
-                                        <span class="badge pull-right">{{ count($category->howMany($brand)) }}</span>
-                                    </a>
-                                </li>
-                            @endif
                         @endforeach
                     </ul>
                 </div>

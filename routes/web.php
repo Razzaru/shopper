@@ -28,4 +28,5 @@ Auth::routes();
 
 Route::get('/{path}/', 'ProductsController@category');
 Route::get('/{path}/{subcategory}', 'ProductsController@subcategory');
+Route::get('/{path}/{subcategory}/{brand}', 'ProductsController@brand');
 

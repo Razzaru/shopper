@@ -22,6 +22,7 @@ class ProductsController extends Controller
         $cat = Category::getByPath($subcategory);
         $products = $cat->products()->paginate(9);
         $brands = Brand::all();
+
         $firstProduct = $cat->products()->get()->random();
         $randomize = $cat->products()->get()->random(14);
 
@@ -31,6 +32,26 @@ class ProductsController extends Controller
             'brands' => $brands,
             'firstProduct' => $firstProduct,
             'randomize' => $randomize,
+        ]);
+    }
+
+    public function brand($category, $subcategory, $brand)
+    {
+        $br = Brand::getByPath($brand);
+        $cat = Category::getByPath($subcategory);
+
+        $products = $br->products()->where('category_id', '=', $cat->id)->paginate(9);
+        $brands = Brand::all();
+
+        $firstProduct = $br->products()->get()->random();
+        $randomize = $br->products()->get()->random(14);
+
+        return view('products.brand', [
+            'category' => $cat,
+            'brands' => $brands,
+            'firstProduct' => $firstProduct,
+            'randomize' => $randomize,
+            'products' => $products,
         ]);
     }
 }

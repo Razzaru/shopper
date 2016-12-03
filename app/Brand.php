@@ -13,4 +13,9 @@ class Brand extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+    public static function getByPath($path)
+    {
+        return Brand::where('path', '=', $path)->first();
+    }
 }

@@ -37,3 +37,11 @@ $factory->define(App\Product::class, function (Faker\Generator $faker) {
         'brand_id' => 1,
     ];
 });
+
+
+$factory->define(App\Brand::class, function (Faker\Generator $faker) {
+
+    return [
+        'title' => $faker->word,
+    ];
+});

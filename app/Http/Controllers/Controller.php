@@ -16,5 +16,6 @@ class Controller extends BaseController
     public function __construct()
     {
         view()->share('categories', Category::mainCats());
+        view()->share('mainPath', 'img/app');
     }
 }

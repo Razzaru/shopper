@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Brand;
 use App\Category;
 use App\Product;
 
@@ -25,6 +26,7 @@ class IndexController
 
     public function test()
     {
+        /*
         Category::create([
             'title' => 'Одежда',
             'path' => 'clothes',
@@ -102,5 +104,6 @@ class IndexController
             'path' => 'newborn',
             'parent_id' => 1
         ]);
+        */
     }
 }

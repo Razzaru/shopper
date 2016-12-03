@@ -33,4 +33,20 @@ class Category extends Model
     {
         return Category::where('path', '=', $path)->first();
     }
+
+    public function howMany(Brand $brand)
+    {
+        $products = $this->products()->get();
+
+        $collection = [];
+        foreach ($products as $product) {
+
+            if ($product->brand_id == $brand->id) {
+                $collection[] = $product;
+            }
+
+        }
+
+        return $collection;
+    }
 }
